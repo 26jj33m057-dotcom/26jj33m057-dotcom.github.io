@@ -38,6 +38,9 @@ if(type==='pet'){happy=clamp(happy+13);energy=clamp(energy+3);coins+=2;gain(3);s
 if(type==='play'){if(energy<15)return say('조금 피곤해 보여. 먼저 재워줘!');energy=clamp(energy-15);food=clamp(food-5);happy=clamp(happy+20);coins+=3;gain(8);say('같이 노니까 너무 신나! 코인 +3 🧸')}
 if(type==='clean'){happy=clamp(happy+8);energy=clamp(energy-3);gain(4);say('뽀득뽀득 깨끗해졌어! 🫧')}
 if(type==='sleep'){energy=clamp(energy+30);happy=clamp(happy+4);say('쿨쿨… 푹 자고 일어났어! 🌙')}
+if(type==='walk'){if(energy<20)return say('산책하기엔 기운이 부족해. 먼저 쉬자!');energy=clamp(energy-12);food=clamp(food-8);happy=clamp(happy+22);coins+=2;gain(8);say('상쾌하게 산책했어! 행복 +22, 코인 +2 🌳')}
+if(type==='brush'){happy=clamp(happy+8);gain(4);say('치카치카! 이가 반짝반짝해졌어 🪥')}
+if(type==='groom'){happy=clamp(happy+12);energy=clamp(energy+4);gain(5);say('보들보들 예쁘게 빗질했어! 🪮')}
 update()}
 const roster=$('roster');chars.forEach((c,i)=>{const b=document.createElement('button');b.className='char'+(i===0?' active':'');b.innerHTML='<img src="'+c[1]+'" alt="'+c[0]+'"><span>'+c[0]+'</span>';b.onclick=()=>choose(i);roster.appendChild(b)});
 [['feed','feed'],['pet','pet'],['play','play'],['snack','snack'],['clean','clean'],['sleep','sleep'],['walk','walk'],['brush','brush'],['groom','groom']].forEach(([id,t])=>$(id).onclick=()=>care(t));\n$('levelUp').onclick=()=>{if(food<100||happy<100||energy<100)return;level++;coins+=15;xp=0;food=60;happy=60;energy=60;update();say('축하해! 레벨이 올랐어! 코인 15개 선물 🎉')};
