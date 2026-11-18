@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>산리오 친구들 펫 키우기</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:16px;background:linear-gradient(145deg,#fff0f6,#fff9e8 55%,#e9f6ff);font-family:system-ui,'Noto Sans KR',sans-serif;color:#584b5b}.wrap{max-width:900px;margin:auto}.head{text-align:center}.head h1{color:#e783aa;margin:5px 0;font-size:29px}.head p{color:#9b8291;font-size:13px;margin:4px 0 15px}.panel{background:#ffffffdf;border:2px solid #fff;border-radius:23px;padding:14px;box-shadow:0 9px 26px #b88ba522}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}.stat{background:#fff3f7;border-radius:14px;padding:8px;text-align:center}.stat small{display:block;color:#a18495;font-size:11px}.stat b{color:#db78a0;font-size:17px}.main{display:grid;grid-template-columns:1.05fr .95fr;gap:12px}.room{height:330px;border-radius:19px;position:relative;overflow:hidden;background:linear-gradient(#dff3ff 0 65%,#c7e8b7 65%);display:flex;align-items:center;justify-content:center}.sun{position:absolute;right:20px;top:12px;font-size:32px}.cloud{position:absolute;left:18px;top:17px;font-size:30px}.petImg{width:78%;height:80%;object-fit:contain;position:relative;z-index:2;filter:drop-shadow(0 6px 2px #80766b22);animation:bob 2.4s ease-in-out infinite}@keyframes bob{0%,100%{transform:translateY(2px)}50%{transform:translateY(-6px)}}.bubble{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:3;background:white;border-radius:20px;padding:7px 12px;font-size:12px;font-weight:800;white-space:nowrap}.petName{text-align:center;font-weight:900;color:#d8799d;margin:8px 0 0}.meters{display:grid;gap:7px;margin-top:10px}.meter{display:grid;grid-template-columns:58px 1fr 26px;align-items:center;gap:6px;font-size:12px;font-weight:800}.bar{height:12px;background:#f1e7ed;border-radius:20px;overflow:hidden}.fill{height:100%;width:70%;background:linear-gradient(90deg,#f39cbe,#ffd17b);border-radius:20px;transition:width .2s}.section{font-weight:900;margin:3px 0 9px}.roster{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;max-height:340px;overflow:auto}.char{border:2px solid #f2dce6;border-radius:13px;background:#fff8fb;padding:6px 3px;color:#725d6b;font:inherit;font-weight:800;font-size:11px;cursor:pointer;min-width:0}.char img{display:block;width:100%;height:66px;object-fit:contain;margin:0 auto 3px}.char.active{border-color:#eb8fb1;background:#fff0f6}.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:12px}.act{border:0;border-radius:13px;padding:10px 3px;background:#fff0d5;color:#88633e;font:inherit;font-size:12px;font-weight:900;cursor:pointer}.act span{display:block;font-size:22px;margin-bottom:2px}.act.pink{background:#ffe4ef;color:#a25473}.log{margin-top:10px;background:#fff7fa;border-radius:13px;padding:9px;text-align:center;color:#967889;font-size:12px;min-height:38px}.credit{text-align:center;color:#a4939c;font-size:10px;margin-top:12px}@media(max-width:650px){.main{grid-template-columns:1fr}.room{height:290px}.roster{grid-template-columns:repeat(4,1fr);max-height:260px}.stats{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><main class="wrap"><header class="head"><h1>🎀 산리오 친구들 펫 키우기</h1><p>좋아하는 산리오 친구를 골라 밥도 주고, 쓰다듬고, 함께 놀아줘! 💗</p></header><section class="panel">
+<div class="stats"><div class="stat"><small>💖 애정 레벨</small><b id="level">Lv. 1</b></div><div class="stat"><small>⭐ 경험치</small><b id="xp">0 / 30</b></div><div class="stat"><small>🪙 코인</small><b id="coins">30</b></div><div class="stat"><small>🐾 친구 수</small><b id="count">14명</b></div></div>
+<div class="main"><div><div class="room"><div class="sun">☀️</div><div class="cloud">☁️</div><div class="bubble" id="bubble">안녕! 나랑 놀자!</div><img class="petImg" id="petImg" src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-hellokitty.png" alt="헬로키티 공식 캐릭터"></div><div class="petName" id="petName">헬로키티</div><div class="meters"><div class="meter"><span>🍚 배부름</span><div class="bar"><div class="fill" id="foodBar"></div></div><span id="foodNum">70</span></div><div class="meter"><span>😊 행복</span><div class="bar"><div class="fill" id="happyBar"></div></div><span id="happyNum">70</span></div><div class="meter"><span>⚡ 기운</span><div class="bar"><div class="fill" id="energyBar"></div></div><span id="energyNum">70</span></div></div><div class="actions"><button class="act" id="feed"><span>🍰</span>밥 주기</button><button class="act pink" id="pet"><span>💗</span>쓰다듬기</button><button class="act" id="play"><span>🧸</span>놀아주기</button><button class="act" id="snack"><span>🍮</span>간식 주기</button><button class="act pink" id="clean"><span>🫧</span>씻겨주기</button><button class="act" id="sleep"><span>🌙</span>재우기</button></div><div class="log" id="log">친구를 선택하고 돌봐줘! 밥을 먹으면 행복해져 💕</div></div>
+<div><div class="section">🌈 산리오 공식 캐릭터 선택</div><div class="roster" id="roster"></div><div class="log">캐릭터 그림은 산리오 공식 사이트의 캐릭터 이미지를 연결했어.</div></div></div>
+<div class="credit">캐릭터 이미지 © SANRIO CO., LTD. · 팬 메이드 놀이용 페이지</div></section></main>
+<script>
+const chars=[
+['헬로키티','https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-hellokitty.png'],
+['시나모롤','https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-cinnamon.png'],
+['폼폼푸린','https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pompompurin.png'],
+['포차코','https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pochacco.png'],
+['마이멜로디','https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-mymelody.png'],
+['쿠로미','https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-kuromi.png'],
+['한교동','https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-hangyodon-1.png'],
+['턱시도샘','https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-tuxedosam.png'],
+['케로케로케로피','https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-keroppi.png'],
+['배드바츠마루','https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-badtzmaru-1.png'],
+['아히루노페클','https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pekkle.png'],
+['구데타마','https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-gudetama.png'],
+['코기뮹','https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-cogimyun-1.png'],
+['위시미멜','https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-wishmemell.png'],
+['하나마루오바케','https://www.sanrio.co.jp/wp-content/uploads/2023/03/mv-hanamaruobake.png']
+];
+let selected=0,food=70,happy=70,energy=70,xp=0,level=1,coins=30;
+const $=id=>document.getElementById(id);
+function clamp(n){return Math.max(0,Math.min(100,n))}
+function update(){[['food',food],['happy',happy],['energy',energy]].forEach(([k,v])=>{$(k+'Bar').style.width=v+'%';$(k+'Num').textContent=Math.round(v)});$('level').textContent='Lv. '+level;$('xp').textContent=xp+' / '+(level*30);$('coins').textContent=coins;$('count').textContent=chars.length+'명'}
+function say(t){$('log').textContent=t;$('bubble').textContent=t}
+function gain(n){xp+=n;while(xp>=level*30){xp-=level*30;level++;coins+=10;say('레벨 업! 코인 10개 받았어! 🎉')}}
+function choose(i){selected=i;$('petImg').src=chars[i][1];$('petImg').alt=chars[i][0]+' 공식 캐릭터';$('petName').textContent=chars[i][0];document.querySelectorAll('.char').forEach((b,j)=>b.classList.toggle('active',i===j));say(chars[i][0]+'와 함께 지내자! 💕')}
+function care(type){if(type==='feed'){if(coins<3)return say('코인이 부족해! 쓰다듬기로 모아봐.');if(food>95)return say('배가 불러서 더 못 먹겠대!');coins-=3;food=clamp(food+24);happy=clamp(happy+6);gain(5);say('냠냠! 맛있게 먹었어 🍰')}
+if(type==='snack'){if(coins<5)return say('코인이 부족해!');coins-=5;food=clamp(food+12);happy=clamp(happy+16);gain(7);say('달콤한 간식 최고야! 🍮')}
+if(type==='pet'){happy=clamp(happy+13);energy=clamp(energy+3);coins+=2;gain(3);say('쓰담쓰담~ 기분이 좋아졌어! 코인 +2 💗')}
+if(type==='play'){if(energy<15)return say('조금 피곤해 보여. 먼저 재워줘!');energy=clamp(energy-15);food=clamp(food-5);happy=clamp(happy+20);coins+=3;gain(8);say('같이 노니까 너무 신나! 코인 +3 🧸')}
+if(type==='clean'){happy=clamp(happy+8);energy=clamp(energy-3);gain(4);say('뽀득뽀득 깨끗해졌어! 🫧')}
+if(type==='sleep'){energy=clamp(energy+30);happy=clamp(happy+4);say('쿨쿨… 푹 자고 일어났어! 🌙')}
+update()}
+const roster=$('roster');chars.forEach((c,i)=>{const b=document.createElement('button');b.className='char'+(i===0?' active':'');b.innerHTML='<img src="'+c[1]+'" alt="'+c[0]+'"><span>'+c[0]+'</span>';b.onclick=()=>choose(i);roster.appendChild(b)});
+[['feed','feed'],['pet','pet'],['play','play'],['snack','snack'],['clean','clean'],['sleep','sleep']].forEach(([id,t])=>$(id).onclick=()=>care(t));
+setInterval(()=>{food=clamp(food-1);energy=clamp(energy-.5);if(food<25)happy=clamp(happy-1);update()},10000);
+update();
+</script></body></html>
